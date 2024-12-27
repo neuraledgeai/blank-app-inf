@@ -7,6 +7,6 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("🎈 My new app")
+st.title("Inflation in the US")
 present = Presentation()
 present.cpi()
