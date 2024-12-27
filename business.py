@@ -9,7 +9,7 @@ class Model:
     self.m2_model = joblib.load("m2_model.pkl")
     self.db = LocalDatabase()
 
-  def predict(self, years = range(1,10), result="fig_cpi"):
+  def predict(self, years = range(1,11), result="fig_cpi"):
     # Load training data from database
     df = self.db.load_data()
     
