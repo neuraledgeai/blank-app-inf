@@ -21,7 +21,7 @@ class Presentation:
     fig = self.model.predict(result = result)
     fig.update_layout(
         dragmode=False,
-        showlegend=False
+        showlegend=True
     )
     st.plotly_chart(fig)
     
