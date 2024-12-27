@@ -8,8 +8,8 @@ class LocalDatabase:
   def load_data(self):
     
     # Convert 'observation_date 'to datetime and assign to 'Date'
-    self.cpi["Date"] = pd.to_datetime(cpi["observation_date"]) 
-    self.m2["Date"] = pd.to_datetime(m2["observation_date"])
+    self.cpi["Date"] = pd.to_datetime(self.cpi["observation_date"]) 
+    self.m2["Date"] = pd.to_datetime(self.m2["observation_date"])
 
     # Drop the 'observation_date' column
     self.cpi.drop(columns=["observation_date"], inplace=True)
