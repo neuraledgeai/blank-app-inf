@@ -20,9 +20,7 @@ class Presentation:
       result = "fig_cpi_pct_chg"
       
     fig = self.model.predict(result = result)
-    #fig.update_layout(
-    #    dragmode=False
-    #)
+    
     # Improve the layout and design
     fig.update_layout(
         dragmode=False,
@@ -34,7 +32,9 @@ class Presentation:
         ),
         yaxis=dict(showgrid=True, gridcolor="lightgrey"),
     )
+    
     st.plotly_chart(fig)
+    
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("CPI 2023", "304.701", "204.701%")
     col2.metric("10 Year Avg. CPI (2023-33)", "462.196", "51.688%")
