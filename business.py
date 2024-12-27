@@ -13,7 +13,6 @@ class Model:
     # Load training data from database
     df = self.db.load_data()
     
-    df = self.
     # Initialize M2 value and corresponding year
     m2 = 20810.3  # M2 for 2023
     corresponding_year = 2023
