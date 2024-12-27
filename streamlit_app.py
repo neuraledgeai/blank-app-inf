@@ -7,6 +7,6 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("Inflation in the US")
+st.title("Consumer Price Index in the US")
 present = Presentation()
 present.cpi()
