@@ -3,3 +3,4 @@ from display import Presentation
 
 st.title("🎈 My new app")
 present = Presentation()
+present.cpi()
