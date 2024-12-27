@@ -19,5 +19,9 @@ class Presentation:
       result = "fig_cpi_pct_chg"
       
     fig = self.model.predict(result = result)
+    fig.update_layout(
+        dragmode=False,
+        showlegend=False
+    )
     st.plotly_chart(fig)
     
