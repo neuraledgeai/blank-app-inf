@@ -3,3 +3,4 @@ from business import Model
 
 st.title("🎈 My new app hiee")
 model = Model()
+fig = model.predict()
