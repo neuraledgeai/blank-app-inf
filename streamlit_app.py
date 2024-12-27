@@ -1,7 +1,5 @@
 import streamlit as st
-from business import Model
+from display import Presentation
 
 st.title("🎈 My new app hiee")
-model = Model()
-fig = model.predict(result="fig_cpi_pct_chg")
-st.plotly_chart(fig)
+presnt = Presentation()
