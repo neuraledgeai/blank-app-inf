@@ -26,6 +26,6 @@ class Presentation:
     st.plotly_chart(fig)
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("CPI 2023", "304.701", "204.701%")
-    col2.metric("10 Year Avg. CPI", "462.196", "51.688%")
-    col3.metric("3 Year Avg. CPI", "383.496", "25.859%")
+    col2.metric("10 Year Avg. CPI (2023-33)", "462.196", "51.688%")
+    col3.metric("3 Year Avg. CPI (2023-26)", "383.496", "25.859%")
     col4.metric("CPI 2025", "383.126", "25.738%")
