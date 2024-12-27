@@ -30,7 +30,7 @@ class Presentation:
         xaxis=dict(
             showgrid=True, 
             gridcolor="lightgrey",
-            rangeslider=dict(visible=True),  # Add a range slider
+            rangeslider=dict(visible=True, bgcolor="lightyellow"),  
         ),
         yaxis=dict(showgrid=True, gridcolor="lightgrey"),
     )
