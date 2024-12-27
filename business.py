@@ -89,4 +89,4 @@ class Model:
         template="plotly_white"
     )
     
-    return fig_pct if result == "fig_pct_chg" else fig_cpi
+    return fig_pct if result == "fig_cpi_pct_chg" else fig_cpi
