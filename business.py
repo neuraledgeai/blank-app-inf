@@ -71,7 +71,7 @@ class Model:
         y="CPI",
         title=(
             "Consumer Price Index for All Urban Consumers: "
-            "All Items in U.S. City Average (1961 - 2032)"
+            "All Items in U.S. City Average (1961 - 2033)"
         ),
         labels={
             "CPI": "CPI (Index 1982-1984=100)",
