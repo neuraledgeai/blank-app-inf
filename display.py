@@ -24,7 +24,7 @@ class Presentation:
         dragmode=False
     )
     st.plotly_chart(fig)
-    col1, col2, col3, col4 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     col1.metric("From 1982-84 to 2023", "304.701", "204.701%")
     col2.metric("Next 10 Years Avg. from 2023", "462.196", "51.688%")
     col3.metric("Next 3 years Avg. from 2023", "383.496", "25.859%")
