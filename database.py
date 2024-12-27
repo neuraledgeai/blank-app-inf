@@ -8,23 +8,23 @@ class LocalDatabase:
   def load_data(self):
     
     # Convert 'observation_date 'to datetime and assign to 'Date'
-    cpi["Date"] = pd.to_datetime(cpi["observation_date"]) 
-    m2["Date"] = pd.to_datetime(m2["observation_date"])
+    self.cpi["Date"] = pd.to_datetime(cpi["observation_date"]) 
+    self.m2["Date"] = pd.to_datetime(m2["observation_date"])
 
     # Drop the 'observation_date' column
-    cpi.drop(columns=["observation_date"], inplace=True)
-    m2.drop(columns=["observation_date"], inplace=True)
+    self.cpi.drop(columns=["observation_date"], inplace=True)
+    self.m2.drop(columns=["observation_date"], inplace=True)
 
     # Rename columns
-    cpi.rename(columns={"CPIAUCSL": "CPI"}, inplace=True)
-    m2.rename(columns={"M2SL": "M2"}, inplace=True)
+    self.cpi.rename(columns={"CPIAUCSL": "CPI"}, inplace=True)
+    self.m2.rename(columns={"M2SL": "M2"}, inplace=True)
     
     # Set 'Date' as the index for both dataframes
-    cpi.set_index('Date', inplace=True)
-    m2.set_index('Date', inplace=True)
+    self.cpi.set_index('Date', inplace=True)
+    self.m2.set_index('Date', inplace=True)
     
     # Concatenate the two DataFrames along the columns
-    df = pd.concat([cpi, m2], axis=1)
+    df = pd.concat([self.cpi, self.m2], axis=1)
 
     return df
 
