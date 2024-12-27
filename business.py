@@ -9,7 +9,7 @@ class Model:
     self.m2_model = joblib.load("m2_model.pkl")
     self.db = LocalDatabase()
 
-  def predict(self, result):
+  def predict(self, years = range(1,10), result="fig_cpi"):
     # Load training data from database
     df = self.db.load_data()
     
@@ -89,4 +89,4 @@ class Model:
         template="plotly_white"
     )
     
-    return fig_pct if result == "pct_chg" else fig_cpi
+    return fig_pct if result == "fig_pct_chg" else fig_cpi
