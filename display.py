@@ -26,7 +26,7 @@ class Presentation:
     # Improve the layout and design
     fig.update_layout(
         dragmode=False,
-        title_font=dict(size=20, family="Arial", color="darkblue"),
+        title_font=dict(size=20, family="Arial"),
         xaxis=dict(
             showgrid=True, 
             gridcolor="lightgrey",
