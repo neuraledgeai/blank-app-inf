@@ -8,6 +8,7 @@ class Presentation:
     self.model = Model()
 
   def cpi(self):
+    
     option = st.selectbox(
       "Units:",
       ("Index 1982-1984=100", "Percent Change from Year Ago"),
@@ -20,8 +21,6 @@ class Presentation:
       
     fig = self.model.predict(result = result)
     fig.update_layout(
-        dragmode=False,
-        showlegend=True
+        dragmode=False
     )
     st.plotly_chart(fig)
-    
