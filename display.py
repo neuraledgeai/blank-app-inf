@@ -8,6 +8,16 @@ class Presentation:
     self.model = Model()
 
   def cpi(self):
-    fig = self.model.predict()
+    option = st.selectbox(
+      "Units:",
+      ("Index 1982-1984=100", "Percent Change from Year Ago"),
+    )
+    
+    if option == "Index 1982-1984=100":
+      result = "fig_cpi"
+    elif option == "Percent Change from Year Ago":
+      result = "fig_cpi_pct_chg"
+      
+    fig = self.model.predict(result = result)
     st.plotly_chart(fig)
     
