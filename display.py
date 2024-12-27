@@ -20,8 +20,19 @@ class Presentation:
       result = "fig_cpi_pct_chg"
       
     fig = self.model.predict(result = result)
+    #fig.update_layout(
+    #    dragmode=False
+    #)
+    # Improve the layout and design
     fig.update_layout(
-        dragmode=False
+        dragmode=False,
+        title_font=dict(size=20, family="Arial", color="darkblue"),
+        xaxis=dict(
+            showgrid=True, 
+            gridcolor="lightgrey",
+            rangeslider=dict(visible=True),  # Add a range slider
+        ),
+        yaxis=dict(showgrid=True, gridcolor="lightgrey"),
     )
     st.plotly_chart(fig)
     col1, col2, col3, col4 = st.columns(4)
