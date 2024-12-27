@@ -1,7 +1,5 @@
 import streamlit as st
-from database import LocalDatabase
+from business import Model
 
 st.title("🎈 My new app hiee")
-db = LocalDatabase()
-df = db.load_data()
-st.dataframe(df)
+model = Model()
