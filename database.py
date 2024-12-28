@@ -3,7 +3,7 @@ import pandas as pd
 class LocalDatabase:
   def __init__(self, cpi_dataset="CPI_for_urban_consumers_all_items_US_city_average.csv", m2_dataset="M2.csv", ccpi_dataset="CPILFESL.csv"):
     self.cpi = pd.read_csv(cpi_dataset)  
-    self.m2 = pd.read_csv(m2_dataset")
+    self.m2 = pd.read_csv(m2_dataset)
     self.ccpi = pd.read_csv(ccpi_dataset)
     self.df = None  # Placeholder for the processed DataFrame
 
