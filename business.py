@@ -1,12 +1,14 @@
 import joblib
 import pandas as pd
-from database import LocalDatabase
+from database import LocalDatabase 
 import plotly.express as px
 
+
 class Model:
-  def __init__(self, cpi_model="cpi_model.pkl", m2_model="m2_model.pkl"):
+  def __init__(self, cpi_model="cpi_model.pkl", m2_model="m2_model.pkl", ccpi_model="ccpi_model.pkl"):
     self.cpi_model = joblib.load("cpi_model.pkl")
     self.m2_model = joblib.load("m2_model.pkl")
+    self.ccpi_model = joblib.load("ccpi_model.pkl")
     self.db = LocalDatabase()
 
   def predict(self, years = range(1,11), result="fig_cpi"):
@@ -49,6 +51,9 @@ class Model:
     
     # Predict CPI
     predicted_cpis = self.cpi_model.predict(df_predicted_m2)  
+
+    # Predict CCPI
+    predicted_ccpis = self.ccpi_model.predict(df_predicted_m2)  
     
     # Create a DataFrame with the predicted CPI values and the corresponding datetime index
     df_predicted_cpi = pd.DataFrame(
@@ -56,18 +61,40 @@ class Model:
         columns=["CPI"],  # Name of the column with predictions
         index=df_predicted_m2.index  # Use the same datetime index from df_predicted_m2
     )
+
+    # Create a DataFrame with the predicted CCPI values and the corresponding datetime index
+    df_predicted_ccpi = pd.DataFrame(
+        predicted_ccpis, 
+        columns=["CCPI"],  # Name of the column with predictions
+        index=df_predicted_m2.index  # Use the same datetime index from df_predicted_m2
+    )
     
-    # Concatenate actual and predicted M2 DataFrames
-    df_cpi = pd.concat([df, df_predicted_cpi])
-    df_cpi = df_cpi.drop(columns=["M2"])
+    # Drop `M2` from `df`
+    df = df.drop(columns=["M2"])
     
-    # Percent Change Year Ago for CPI
-    df_cpi["pct_chg"] = df_cpi["CPI"].pct_change() * 100
-    df_cpi = df_cpi.dropna()
+    #  Concatenate predicted CPI and CCPI dataframes horizontally
+    df_predicted_cpis = pd.concat([df_predicted_cpi, df_predicted_ccpi], axis=1)
+
+    #Align the index of df_predicted_cpis with df_predicted_m2
+    df_predicted_cpis.index = df_predicted_m2.index
+
+    # Concatenate the original dataframe with the predicted values
+    df = pd.concat([df, df_predicted_cpis])
+
+    # Calculate Percent Change Year Ago for CPI and CCPI
+    df["CPI_PC"] = df["CPI"].pct_change() * 100
+    df["CCPI_PC"] = df["CCPI"].pct_change() * 100
     
+    # Drop rows with NaN values resulting from percent change calculation
+    df = df.dropna()
+
+    # Add a 'Label' column
+    df["Label"] = ["Actual" if idx.year <= 2023 else "Predicted" for idx in df.index]
+
     # Figure for CPI
     fig_cpi = px.line(
-        df_cpi,
+        df,
+        x=df.index,
         y="CPI",
         title=(
             "Consumer Price Index for All Urban Consumers: "
@@ -79,14 +106,52 @@ class Model:
         },
         template="plotly_white"
     )
-    
-    # Figure for CPI percent change
-    fig_pct = px.line(
-        df_cpi,
-        y="pct_chg",
-        title="Percentage Change a Year Ago in CPI",
-        labels={"pct_chg": "% Change a Year Ago", "index": "Year"},
+
+    # Figure for CCPI
+    fig_ccpi = px.line(
+        df,
+        x=df.index,
+        y="CCPI",
+        title=(
+            "Consumer Price Index for All Urban Consumers: "
+            "All Items Less Food and Energy in U.S. City Average (1961 - 2033)"
+        ),
+        labels={
+            "CPI": "CPI (Index 1982-1984=100)",
+            "index": "Year"
+        },
         template="plotly_white"
     )
+
+    # Figure for CPI percent change
+    fig_cpi_pc = px.line(
+        df,
+        x=df.index,
+        y="CPI_PC",
+        title="Percentage Change a Year Ago in CPI: All Items in U.S. City Average (1961 - 2033)",
+        labels={"CPI_PC": "% Change a Year Ago", "index": "Year"},
+        template="plotly_white"
+    )
+
+    # Figure for CCPI percent change
+    fig_ccpi_pc = px.line(
+        df,
+        x=df.index,
+        y="CCPI_PC",
+        title="Percentage Change a Year Ago in CPI: All Items Less Food and Energy in U.S. City Average (1961 - 2033)",
+        labels={"CPI_PC": "% Change a Year Ago", "index": "Year"},
+        template="plotly_white"
+    )
+
+    if result == "fig_cpi":
+        fig = fig_cpi
+    elif result == "fig_cpi_pct_chg":
+        fig = fig_cpi_pc
+    elif result == "fig_ccpi":
+        fig = fig_ccpi
+    elif result == "fig_ccpi_pct_chg":
+        fig = fig_ccpi_pc
+    elif result == "dataframe":
+        fig = df
     
-    return fig_pct if result == "fig_cpi_pct_chg" else fig_cpi
+    return fig
