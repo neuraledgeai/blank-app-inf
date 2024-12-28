@@ -22,11 +22,11 @@ class Presentation:
     if option == "CPI: All Items in U.S. City Average":
       result = "fig_cpi"
     elif option == "Percent Change from Year Ago: CPI: All Items in U.S. City Average":
-      result = "fig_ccpi"
+      result = "fig_cpi_pct_chg"
     elif option == "CPI: All Items Less Food and Energy in U.S. City Average":
-      result == "fig_ccpi"
+      result = "fig_ccpi"
     elif option == "Percent Change from Year Ago: CPI: All Items Less Food and Energy in U.S. City Average":
-      result == "fig_ccpi_pct_chg"
+      result = "fig_ccpi_pct_chg"
       
     fig = self.model.predict(result = result)
     
