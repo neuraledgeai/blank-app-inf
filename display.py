@@ -10,14 +10,23 @@ class Presentation:
   def cpi(self):
     
     option = st.selectbox(
-      "Units:",
-      ("Index 1982-1984=100", "Percent Change from Year Ago"),
+      "Units/Index:",
+      (
+        "CPI: All Items in U.S. City Average",
+        "Percent Change from Year Ago: CPI: All Items in U.S. City Average",
+        "CPI: All Items Less Food and Energy in U.S. City Average",
+        "Percent Change from Year Ago: CPI: All Items Less Food and Energy in U.S. City Average"
+      ),
     )
     
-    if option == "Index 1982-1984=100":
+    if option == "CPI: All Items in U.S. City Average":
       result = "fig_cpi"
-    elif option == "Percent Change from Year Ago":
+    elif option == "Percent Change from Year Ago: CPI: All Items in U.S. City Average":
       result = "fig_cpi_pct_chg"
+    elif option == "CPI: All Items Less Food and Energy in U.S. City Average":
+      result == "fig_ccpi"
+    elif option == "Percent Change from Year Ago: CPI: All Items Less Food and Energy in U.S. City Average":
+      result == "fig_ccpi_pct_chg"
       
     fig = self.model.predict(result = result)
     
