@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("Consumer Price Index in the US")
+st.title("CPI MACHINE")
 st.subheader("Consumer Price Index in the US")
 present = Presentation()
 present.cpi()
