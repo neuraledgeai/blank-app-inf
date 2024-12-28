@@ -41,7 +41,7 @@ class Presentation:
         ),
         yaxis=dict(showgrid=True, gridcolor="lightgrey"),
     )
-    st.subheader("Consumer Price Index in the US")
+    
     st.plotly_chart(fig)
     
     col1, col2, col3, col4 = st.columns(4)
