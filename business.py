@@ -117,7 +117,7 @@ class Model:
             "All Items Less Food and Energy in U.S. City Average (1961 - 2033)"
         ),
         labels={
-            "CPI": "CPI (Index 1982-1984=100)",
+            "CCPI": "CPI (Index 1982-1984=100)",
             "index": "Year"
         },
         template="plotly_white"
