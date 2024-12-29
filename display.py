@@ -49,25 +49,25 @@ class Presentation:
       result = "fig_cpi"
       cpi = mean_cpi.round(3)
       cpi_percent_change = percent_change_cpi.round(3)
-      purchasing_power = pp_cpi_2033.round(3) * 100
+      purchasing_power = pp_cpi_2033.round(3)
       purchasing_power_percent_change = pp_cpi_change.round(3)
     elif option == "Inflation (percent change)":
       result = "fig_cpi_pct_chg"
       cpi = mean_cpi.round(3)
       cpi_percent_change = percent_change_cpi.round(3)
-      purchasing_power = pp_cpi_2033.round(3) * 100
+      purchasing_power = pp_cpi_2033.round(3)
       purchasing_power_percent_change = pp_cpi_change.round(3)
     elif option == "Core Inflation":
       result = "fig_ccpi"
       cpi = mean_ccpi.round(3)
       cpi_percent_change = percent_change_ccpi.round(3)
-      purchasing_power = pp_ccpi_2033.round(3) * 100
+      purchasing_power = pp_ccpi_2033.round(3)
       purchasing_power_percent_change = pp_ccpi_change.round(3)
     elif option == "Core Inflation (percent change)":
       result = "fig_ccpi_pct_chg"
       cpi = mean_ccpi.round(3)
       cpi_percent_change = percent_change_ccpi.round(3)
-      purchasing_power = pp_ccpi_2033.round(3) * 100
+      purchasing_power = pp_ccpi_2033.round(3)
       purchasing_power_percent_change = pp_ccpi_change.round(3)
       
     fig = self.model.predict(result = result)
