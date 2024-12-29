@@ -125,7 +125,7 @@ class Model:
         df,
         x=df.index,
         y="CPI_PC",
-        title="Percentage Change a Year Ago in CPI: All Items in U.S. City Average (1961 - 2033)",
+        title="Percentage Change a Year Ago in CPI: All Items in U.S. City Average (1961 - 2033) <br>",
         labels={"CPI_PC": "CPI % Change a Year Ago", "index": "Year"},
         template="plotly_white"
     )
