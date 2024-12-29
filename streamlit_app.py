@@ -17,6 +17,11 @@ html_content = """
     This is a sample text that is justified from the left end to the right end with a smaller font size.
     You can write your content here and it will be displayed in a justified manner.
 </div>
+
+<div style="text-align: justify; font-size: 12px;">
+    This is a sample text that is justified from the left end to the right end with a smaller font size.
+    You can write your content here and it will be displayed in a justified manner.
+</div>
 """
 
 # Render the HTML content in Streamlit
