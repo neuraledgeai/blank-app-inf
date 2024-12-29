@@ -93,5 +93,5 @@ class Presentation:
       f"{purchasing_power * 100}",
       f"{purchasing_power_percent_change}%",
       border=True,
-      help ="On average, the value of $1.00 in 2033 is only 17.1% of its value during the base period (1982-1984)."
+      help =f"On average, the value of $1.00 in 2033 is only {purchasing_power * 100} of its value during the base period (1982-1984) and its a {purchasing_power_percent_change}% decrease from 2023."
     )
