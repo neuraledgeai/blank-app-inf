@@ -36,20 +36,20 @@ class Presentation:
     
     if option == "CPI: All Items in U.S. City Average":
       result = "fig_cpi"
-      cpi = mean_cpi
-      percent_change = percent_change_cpi
+      cpi = mean_cpi.round(3)
+      percent_change = percent_change_cpi.round(3)
     elif option == "Percent Change from Year Ago: CPI: All Items in U.S. City Average":
       result = "fig_cpi_pct_chg"
-      cpi = mean_cpi
-      percent_change = percent_change_cpi
+      cpi = mean_cpi.round(3)
+      percent_change = percent_change_cpi.round(3)
     elif option == "CPI: All Items Less Food and Energy in U.S. City Average":
       result = "fig_ccpi"
-      cpi = mean_ccpi
-      percent_change = percent_change_ccpi
+      cpi = mean_ccpi.round(3)
+      percent_change = percent_change_ccpi.round(3)
     elif option == "Percent Change from Year Ago: CPI: All Items Less Food and Energy in U.S. City Average":
       result = "fig_ccpi_pct_chg"
-      cpi = mean_ccpi
-      percent_change = percent_change_ccpi
+      cpi = mean_ccpi.round(3)
+      percent_change = percent_change_ccpi.round(3)
       
     fig = self.model.predict(result = result)
     
