@@ -24,4 +24,4 @@ content = """
 """
 
 # Render the HTML content in Streamlit
-st.markdown(html_content, unsafe_allow_html=True)
+st.markdown(content, unsafe_allow_html=True)
