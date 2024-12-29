@@ -87,7 +87,13 @@ class Presentation:
     st.plotly_chart(fig)
     
     col1, col2 = st.columns(2)
-    col1.metric("10 Year Avg. CPI (2023-33)", cpi, f"{cpi_percent_change}%", border=True)
+    col1.metric(
+      "10 Year Avg. CPI (2023-33)",
+      cpi,
+      f"{cpi_percent_change}%",
+      help =f"The average Consumer Price Index (CPI) over the 10 years from 2024 to 2033. It represents a {cpi_percent_change}% increase compared to the CPI value in 2023.",
+      border=True
+    )
     col2.metric(
       "Purchasing Power (2033)",
       f"{purchasing_power * 100}",
