@@ -18,15 +18,38 @@ class Presentation:
         "Percent Change from Year Ago: CPI: All Items Less Food and Energy in U.S. City Average"
       ),
     )
+    df = model.predict(result="dataframe")
+    # Filter for predicted values (2024–2033)
+    df_predicted = df[df["Label"] == "Predicted"]
+    
+    # Calculate the mean CPI and CCPI for the predicted values
+    mean_cpi = df_predicted["CPI"].mean()
+    mean_ccpi = df_predicted["CCPI"].mean()
+    
+    # Get the actual CPI and CCPI values for 2023
+    actual_cpi_2023 = df.loc["2023-01-01", "CPI"]
+    actual_ccpi_2023 = df.loc["2023-01-01", "CCPI"]
+    
+    # Calculate percent change from 2023 actual to predicted mean
+    percent_change_cpi = ((mean_cpi - actual_cpi_2023) / actual_cpi_2023) * 100
+    percent_change_ccpi = ((mean_ccpi - actual_ccpi_2023) / actual_ccpi_2023) * 100
     
     if option == "CPI: All Items in U.S. City Average":
       result = "fig_cpi"
+      cpi = mean_cpi
+      percent_change = percent_change_cpi
     elif option == "Percent Change from Year Ago: CPI: All Items in U.S. City Average":
       result = "fig_cpi_pct_chg"
+      cpi = mean_cpi
+      percent_change = percent_change_cpi
     elif option == "CPI: All Items Less Food and Energy in U.S. City Average":
       result = "fig_ccpi"
+      cpi = mean_ccpi
+      percent_change = percent_change_ccpi
     elif option == "Percent Change from Year Ago: CPI: All Items Less Food and Energy in U.S. City Average":
       result = "fig_ccpi_pct_chg"
+      cpi = mean_ccpi
+      percent_change = percent_change_ccpi
       
     fig = self.model.predict(result = result)
     
@@ -44,8 +67,6 @@ class Presentation:
     
     st.plotly_chart(fig)
     
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric("CPI 2023", "304.701", "204.701%")
+    col1, col2 = st.columns(2)
+    col1.metric("CPI", cpi, percent_change)
     col2.metric("10 Year Avg. CPI (2023-33)", "462.196", "51.688%")
-    col3.metric("3 Year Avg. CPI (2023-26)", "383.496", "25.859%")
-    col4.metric("CPI 2025", "383.126", "25.738%")
