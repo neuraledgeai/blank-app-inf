@@ -13,7 +13,7 @@ st.title("Consumer Price Index in the USA")
 present.cpi()
 
 
-st.write("Notes")
+st.info("Notes")
 content = """
 <div style="text-align: justify; font-size: 12px;">
     <p>The Consumer Price Index for All Urban Consumers: All Items is a price index of a basket of goods and services paid by urban consumers in the United States. 
