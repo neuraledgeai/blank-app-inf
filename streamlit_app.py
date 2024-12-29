@@ -10,6 +10,5 @@ st.set_page_config(
 present = Presentation()
 
 st.title("Consumer Price Index in the USA")
-st.subheader("Trends and Predictions")
 present.cpi()
 present.notes()
