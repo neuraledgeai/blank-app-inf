@@ -18,7 +18,7 @@ class Presentation:
         "Percent Change from Year Ago: CPI: All Items Less Food and Energy in U.S. City Average"
       ),
     )
-    df = model.predict(result="dataframe")
+    df = self.model.predict(result="dataframe")
     # Filter for predicted values (2024–2033)
     df_predicted = df[df["Label"] == "Predicted"]
     
