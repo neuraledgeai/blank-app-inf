@@ -88,4 +88,10 @@ class Presentation:
     
     col1, col2 = st.columns(2)
     col1.metric("10 Year Avg. CPI (2023-33)", cpi, f"{cpi_percent_change}%", border=True)
-    col2.metric("Purchasing Power (2023-33)", f"{purchasing_power * 100}", f"{purchasing_power_percent_change}%", border=True)
+    col2.metric(
+      "Purchasing Power (2033)",
+      f"{purchasing_power * 100}",
+      f"{purchasing_power_percent_change}%",
+      border=True,
+      help ="On average, the value of $1.00 in 2033 is only 17.1% of its value during the base period (1982-1984)."
+    )
