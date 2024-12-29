@@ -87,5 +87,5 @@ class Presentation:
     st.plotly_chart(fig)
     
     col1, col2 = st.columns(2)
-    col1.metric("10 Year Avg. CPI (2023-33)", cpi, f"{cpi_percent_change}%", border=True)
+    col1.metric("10 Year Avg. CPI (2023-33)", cpi, f"{cpi_percent_change}%", border=True, help="??")
     col2.metric("Purchasing Power (2023-33)", purchasing_power, f"{purchasing_power_percent_change}%", border=True)
