@@ -129,7 +129,7 @@ class Model:
         x=df.index,
         y="CPI_PC",
         title="Percentage Change a Year Ago in CPI: All Items in U.S. City Average (1961 - 2033)",
-        labels={"CPI_PC": "% Change a Year Ago", "index": "Year"},
+        labels={"CPI_PC": "CPI % Change a Year Ago", "index": "Year"},
         template="plotly_white"
     )
 
@@ -139,7 +139,7 @@ class Model:
         x=df.index,
         y="CCPI_PC",
         title="Percentage Change a Year Ago in CPI: All Items Less Food and Energy in U.S. City Average (1961 - 2033)",
-        labels={"CPI_PC": "% Change a Year Ago", "index": "Year"},
+        labels={"CCPI_PC": "CPI % Change a Year Ago", "index": "Year"},
         template="plotly_white"
     )
 
