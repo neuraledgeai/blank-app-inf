@@ -96,10 +96,7 @@ class Model:
         df,
         x=df.index,
         y="CPI",
-        #title=(
-        #    "Consumer Price Index for All Urban Consumers: "
-        #    "All Items in U.S. City Average (1961 - 2033)"
-        #),
+        title=(""),
         labels={
             "CPI": "CPI (Index 1982-1984=100)",
             "index": "Year"
