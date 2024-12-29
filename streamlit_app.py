@@ -11,6 +11,9 @@ present = Presentation()
 
 st.title("Consumer Price Index in the USA")
 present.cpi()
+
+
+
 # Define the HTML content with CSS for justification, font size, and spacing between paragraphs
 html_content = """
 <div style="text-align: justify; font-size: 12px;">
