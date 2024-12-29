@@ -83,7 +83,7 @@ class Presentation:
         ),
         yaxis=dict(showgrid=True, gridcolor="lightgrey"),
     )
-    
+    st.write("**CPI In the US Average**")
     st.plotly_chart(fig)
     
     col1, col2 = st.columns(2)
