@@ -91,7 +91,7 @@ class Presentation:
       "10 Year Avg. CPI (2023-33)",
       cpi,
       f"{cpi_percent_change}%",
-      help =f"The average Consumer Price Index (CPI) over the 10 years from 2024 to 2033. It represents a {cpi_percent_change}% increase compared to the CPI value in 2023.",
+      help =f"The average Consumer Price Index (CPI) over the 10 years from 2024 to 2033 is expected to represent a {cpi_percent_change}% increase compared to the CPI value in 2023.",
       border=True
     )
     col2.metric(
