@@ -13,8 +13,8 @@ class Presentation:
       "Units/Index:",
       (
         "Inflation",
-        "Inflation (percent change)",
         "Core Inflation",
+        "Inflation (percent change)",
         "Core Inflation (percent change)"
       ),
     )
