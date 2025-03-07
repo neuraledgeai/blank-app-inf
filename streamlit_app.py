@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.title(":purple-background[ECNOWLEDGE] - The Journal of Economic Knowlege")
+st.title(":blue[ECNOWLEDGE] - The Journal of Economic Knowlege")
