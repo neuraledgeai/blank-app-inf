@@ -1,10 +1,14 @@
 import streamlit as st
+from display import Presentation
 
-st.markdown(
-    """
-    <h1 style='text-align: center;'>ECNOWLEDGE, Vol.3 JAN-DEC 2024</h1>
-    <h3 style='text-align: center;'>The Journal of Economic Knowledge!</h3>
-    <h4 style='text-align: center;'>Produced and Maitained by Dept. of Economics, SN College Sivagiri, Varkala.</h4>
-    """, 
-    unsafe_allow_html=True
+# Set page title and layout
+st.set_page_config(
+    page_title="CPI Machines",
+    layout="wide",
 )
+
+present = Presentation()
+
+st.title("Consumer Price Index in the USA")
+present.cpi()
+present.notes()
