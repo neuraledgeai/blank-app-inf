@@ -2,6 +2,7 @@ import streamlit as st
 
 st.markdown(
     "<h1 style='text-align: center;'>ECNOWLEDGE, Vol.3 JAN-DEC 2024</h1>", 
+    "<h1 style='text-align: center;'>ECNOWLEDGE, The Journal of Economic Knowlege!</h1>", 
     unsafe_allow_html=True
 )
 st.title("The Journal of Economic Knowlege!")
